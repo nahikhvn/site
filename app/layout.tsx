@@ -24,32 +24,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        <main className="flex min-h-screen justify-center px-6 sm:px-10 lg:px-24 pt-24 pb-10">
-          <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-[auto_1px_1fr] gap-6 md:gap-10">
-            <nav className="sticky top-10 self-start text-sm">
-              <ul className="space-y-3">
-                <li>
-                  <span className="relative inline-block group text-zinc-100 tracking-wide font-semibold">
-                    <span className="transition-opacity duration-300 group-hover:opacity-0">
-                      nahi khan
-                    </span>
-                    <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      নাহি খান
-                    </span>
+        <main className="min-h-screen px-6 sm:px-10 lg:px-24 pt-24 pb-10">
+          <div className="mx-auto w-full max-w-5xl grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-16">
+            <nav className="sticky top-24 self-start">
+              <div className="mb-8">
+                <span className="relative inline-block group text-zinc-100 tracking-wide font-semibold">
+                  <span className="transition-opacity duration-300 group-hover:opacity-0">
+                    nahi khan
                   </span>
-                </li>
+                  <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    নাহি খান
+                  </span>
+                </span>
+              </div>
+              <ul className="space-y-4">
                 <NavItem href="/" label="me" />
                 <NavItem href="/books" label="books" />
                 <NavItem href="/writing" label="writing" />
                 <NavItem href="/gallery" label="gallery" />
               </ul>
             </nav>
-
-            <div className="hidden md:block bg-zinc-800/60" />
 
             <section className="min-w-0 space-y-12">
               {children}
@@ -93,7 +91,7 @@ function NavItem({ href, label }: { href: string; label: string }) {
     <li>
       <Link
         href={href}
-        className="block text-zinc-500 hover:text-zinc-100 transition-colors tracking-wide"
+        className="block text-base text-zinc-500 hover:text-zinc-100 transition-colors tracking-wide"
       >
         {label}
       </Link>

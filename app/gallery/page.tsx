@@ -58,6 +58,24 @@ export default function GalleryPage() {
           feel less demanding and more approachable.
         </p>
       </section>
+
+      {Array.from({ length: 6 }, (_, i) => (
+        <section key={i} className="space-y-4">
+          <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-zinc-500">
+            Filler section {i + 1}
+          </h3>
+          <p className="text-sm md:text-base leading-relaxed text-zinc-400">
+            This is placeholder content to test scrolling behavior. The sidebar
+            on the left should remain fixed in place while this content area
+            scrolls freely using the browser&apos;s native scrollbar.
+          </p>
+          <p className="text-sm md:text-base leading-relaxed text-zinc-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris.
+          </p>
+        </section>
+      ))}
     </div>
   );
 }

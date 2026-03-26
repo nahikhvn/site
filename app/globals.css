@@ -13,13 +13,12 @@
 }
 
 html {
-  height: 100%;
-  overflow: hidden;
+  scrollbar-gutter: stable;
+  background: var(--background);
+  overscroll-behavior: none;
 }
 
 body {
-  height: 100%;
-  overflow-y: auto;
   overscroll-behavior-y: none;
   background: var(--background);
   color: var(--foreground);
