@@ -2,9 +2,6 @@ export default function Home() {
   return (
     <div className="space-y-10 pb-12">
       <section className="space-y-4">
-        <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-zinc-50">
-          Me
-        </h2>
         <p className="text-sm md:text-base leading-relaxed text-zinc-400">
           I&apos;m Nahi Khan, a developer who enjoys building deliberate, quiet
           interfaces that leave just enough room for curiosity. I care about

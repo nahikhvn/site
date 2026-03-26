@@ -2,9 +2,6 @@ export default function GalleryPage() {
   return (
     <div className="space-y-10 pb-12">
       <section className="space-y-4">
-        <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-zinc-50">
-          Gallery
-        </h2>
         <p className="text-sm md:text-base leading-relaxed text-zinc-400">
           A small, rotating gallery of visual references—moments, colors, and
           compositions that feel aligned with the kind of work I want to make.

@@ -2,9 +2,6 @@ export default function WritingPage() {
   return (
     <div className="space-y-10 pb-12">
       <section className="space-y-4">
-        <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-zinc-50">
-          Writing
-        </h2>
         <p className="text-sm md:text-base leading-relaxed text-zinc-400">
           Drafts, fragments, and essays. Most of what I write starts as notes to
           myself—this page is where some of those notes eventually surface in a

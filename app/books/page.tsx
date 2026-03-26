@@ -2,9 +2,6 @@ export default function BooksPage() {
   return (
     <div className="space-y-10 pb-12">
       <section className="space-y-4">
-        <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-zinc-50">
-          Books
-        </h2>
         <p className="text-sm md:text-base leading-relaxed text-zinc-400">
           A loose log of books I&apos;ve read, am reading, or keep returning to.
           This isn&apos;t a complete list or a ranking, just a record of what
