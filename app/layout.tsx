@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
+import { NavItem } from "./NavItem";
+import { MobileNav } from "./MobileNav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,28 +29,27 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        <main className="min-h-screen px-6 sm:px-10 lg:px-24 pt-24 pb-10">
-          <div className="mx-auto w-full max-w-5xl grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-16">
-            <nav className="sticky top-24 self-start">
-              <div className="mb-8">
-                <span className="relative inline-block group text-zinc-100 tracking-wide font-semibold">
-                  <span className="transition-opacity duration-300 group-hover:opacity-0">
-                    nahi khan
-                  </span>
-                  <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    নাহি খান
-                  </span>
+        <main className="min-h-screen px-5 sm:px-10 lg:px-24 pt-16 sm:pt-24 pb-10">
+          <div className="mx-auto w-full max-w-2xl">
+            <nav className="relative mb-10 sm:mb-16 flex items-center justify-between">
+              <span className="relative inline-block group text-zinc-100 tracking-wide font-semibold">
+                <span className="transition-opacity duration-300 group-hover:opacity-0">
+                  nahi khan
                 </span>
-              </div>
-              <ul className="space-y-4">
+                <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  নাহি খান
+                </span>
+              </span>
+              <ul className="hidden sm:flex gap-6">
                 <NavItem href="/" label="me" />
                 <NavItem href="/books" label="books" />
                 <NavItem href="/writing" label="writing" />
                 <NavItem href="/gallery" label="gallery" />
               </ul>
+              <MobileNav />
             </nav>
 
-            <section className="min-w-0 space-y-12">
+            <section className="space-y-12">
               {children}
 
               <footer className="mt-12 border-t border-zinc-800/60 pt-6 text-sm text-zinc-500">
@@ -83,18 +83,5 @@ export default function RootLayout({
         </main>
       </body>
     </html>
-  );
-}
-
-function NavItem({ href, label }: { href: string; label: string }) {
-  return (
-    <li>
-      <Link
-        href={href}
-        className="block text-base text-zinc-500 hover:text-zinc-100 transition-colors tracking-wide"
-      >
-        {label}
-      </Link>
-    </li>
   );
 }
