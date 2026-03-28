@@ -32,6 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground relative`}
       >
         <GlyphBackground />
+        <MobileNav />
         <main className="relative z-10 min-h-screen px-5 sm:px-10 lg:px-24 pt-16 sm:pt-24 pb-10">
           <div className="relative mx-auto w-full max-w-2xl">
             <div className="relative mb-10 sm:mb-16 flex items-center justify-between">
@@ -44,7 +45,6 @@ export default function RootLayout({
                 </span>
               </a>
               <div className="hidden sm:flex items-center"><ThemeToggle /></div>
-              <MobileNav />
             </div>
 
             <section className="relative space-y-12 content-shield">
