@@ -35,14 +35,14 @@ export default function RootLayout({
         <main className="relative z-10 min-h-screen px-5 sm:px-10 lg:px-24 pt-16 sm:pt-24 pb-10">
           <div className="relative mx-auto w-full max-w-2xl">
             <div className="relative mb-10 sm:mb-16 flex items-center justify-between">
-              <span className="relative inline-block group text-zinc-900 dark:text-zinc-100 tracking-wide font-semibold px-2 py-1 rounded-sm">
+              <a href="/" className="relative inline-block group text-zinc-900 dark:text-zinc-100 tracking-wide font-semibold py-1 rounded-sm">
                 <span className="transition-opacity duration-300 group-hover:opacity-0">
                   nahi khan
                 </span>
                 <span className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   নাহি খান
                 </span>
-              </span>
+              </a>
               <div className="hidden sm:flex items-center"><ThemeToggle /></div>
               <MobileNav />
             </div>
