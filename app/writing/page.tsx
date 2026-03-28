@@ -1,71 +1,92 @@
+import Link from "next/link";
+
+type Entry = {
+  title: string;
+  date: string;
+  description: string;
+  tag: "essay" | "note" | "external";
+  href: string;
+  source?: string;
+};
+
+const entries: Entry[] = [
+  {
+    title: "Tools that disappear",
+    date: "2026-03-14",
+    description:
+      "On the difference between software that demands attention and software that gets out of the way. Why the best interfaces feel like nothing at all.",
+    tag: "essay",
+    href: "/writing/tools-that-disappear",
+  },
+  {
+    title: "Calm software in an anxious world",
+    date: "2026-02-28",
+    description:
+      "A thread on why notification counts, red badges, and urgency cues are design failures — and what the alternative looks like.",
+    tag: "external",
+    href: "https://x.com/nahikhvn",
+    source: "x.com",
+  },
+];
+
+const tagStyles: Record<Entry["tag"], string> = {
+  essay: "text-zinc-500 dark:text-zinc-400 border-zinc-300 dark:border-zinc-600",
+  note: "text-zinc-500 dark:text-zinc-400 border-zinc-300 dark:border-zinc-600",
+  external: "text-zinc-500 dark:text-zinc-400 border-zinc-300 dark:border-zinc-600",
+};
+
+function formatDate(iso: string) {
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
+
 export default function WritingPage() {
   return (
     <div className="space-y-10 pb-12">
-      <section className="space-y-4">
-        <p className="text-sm md:text-base leading-relaxed text-zinc-400">
-          Drafts, fragments, and essays. Most of what I write starts as notes to
-          myself—this page is where some of those notes eventually surface in a
-          more shareable form.
-        </p>
-      </section>
+      <p className="text-sm md:text-base leading-relaxed text-zinc-500">
+        Drafts, fragments, and essays. Some live here, others link out to where
+        they were first published.
+      </p>
 
-      <section className="space-y-4">
-        <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-zinc-500">
-          On building
-        </h3>
-        <p className="text-sm md:text-base leading-relaxed text-zinc-400">
-          I&apos;m interested in tools that feel like they were made for one
-          person at a time. Not in the sense of being exclusive, but in how they
-          respond—calmly, predictably, and with a sense that someone thought
-          carefully about the edges you might run into.
-        </p>
-        <p className="text-sm md:text-base leading-relaxed text-zinc-400">
-          Good tools disappear when you&apos;re using them. Great tools make
-          you notice the work instead of the interface.
-        </p>
-      </section>
+      <div className="space-y-0">
+        {entries.map((entry) => {
+          const isExternal = entry.tag === "external";
+          const Wrapper = isExternal ? "a" : Link;
+          const props = isExternal
+            ? { href: entry.href, target: "_blank", rel: "noreferrer" }
+            : { href: entry.href };
 
-      <section className="space-y-4">
-        <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-zinc-500">
-          On learning in public
-        </h3>
-        <p className="text-sm md:text-base leading-relaxed text-zinc-400">
-          Sharing work-in-progress is uncomfortable but useful. It forces ideas
-          out of your head and into a form that has to stand on its own, even if
-          only briefly. I think of this page as a place for that kind of work:
-          structured enough to read, loose enough to change.
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-zinc-500">
-          What&apos;s next
-        </h3>
-        <p className="text-sm md:text-base leading-relaxed text-zinc-400">
-          Future pieces will probably explore the overlap between engineering,
-          interface design, and how people actually experience software in their
-          day-to-day lives. For now, this space is intentionally small and
-          simple—a quiet place to scroll through ideas.
-        </p>
-      </section>
-
-      {Array.from({ length: 6 }, (_, i) => (
-        <section key={i} className="space-y-4">
-          <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-zinc-500">
-            Filler section {i + 1}
-          </h3>
-          <p className="text-sm md:text-base leading-relaxed text-zinc-400">
-            This is placeholder content to test scrolling behavior. The sidebar
-            on the left should remain fixed in place while this content area
-            scrolls freely using the browser&apos;s native scrollbar.
-          </p>
-          <p className="text-sm md:text-base leading-relaxed text-zinc-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris.
-          </p>
-        </section>
-      ))}
+          return (
+            <Wrapper
+              key={entry.title}
+              {...(props as React.ComponentProps<typeof Wrapper>)}
+              className="group block py-5 border-b border-zinc-100 dark:border-zinc-800 first:border-t"
+            >
+              <div className="flex items-baseline justify-between gap-4 mb-1.5">
+                <h3 className="text-sm md:text-base font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors">
+                  {entry.title}
+                  {isExternal && (
+                    <span className="ml-1.5 text-zinc-400 text-xs">↗</span>
+                  )}
+                </h3>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span
+                    className={`text-[10px] uppercase tracking-widest border rounded-full px-2 py-0.5 ${tagStyles[entry.tag]}`}
+                  >
+                    {entry.tag === "external" ? entry.source : entry.tag}
+                  </span>
+                  <span className="text-xs text-zinc-400">
+                    {formatDate(entry.date)}
+                  </span>
+                </div>
+              </div>
+              <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                {entry.description}
+              </p>
+            </Wrapper>
+          );
+        })}
+      </div>
     </div>
   );
 }
