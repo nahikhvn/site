@@ -51,17 +51,10 @@ export default function WritingPage() {
       <div className="space-y-0">
         {entries.map((entry) => {
           const isExternal = entry.tag === "external";
-          const Wrapper = isExternal ? "a" : Link;
-          const props = isExternal
-            ? { href: entry.href, target: "_blank", rel: "noreferrer" }
-            : { href: entry.href };
+          const className = "group block py-5 border-b border-zinc-100 dark:border-zinc-800 first:border-t";
 
-          return (
-            <Wrapper
-              key={entry.title}
-              {...(props as React.ComponentProps<typeof Wrapper>)}
-              className="group block py-5 border-b border-zinc-100 dark:border-zinc-800 first:border-t"
-            >
+          const inner = (
+            <>
               <div className="flex items-baseline justify-between gap-4 mb-1.5">
                 <h3 className="text-sm md:text-base font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors">
                   {entry.title}
@@ -83,7 +76,17 @@ export default function WritingPage() {
               <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
                 {entry.description}
               </p>
-            </Wrapper>
+            </>
+          );
+
+          return isExternal ? (
+            <a key={entry.title} href={entry.href} target="_blank" rel="noreferrer" className={className}>
+              {inner}
+            </a>
+          ) : (
+            <Link key={entry.title} href={entry.href} className={className}>
+              {inner}
+            </Link>
           );
         })}
       </div>
