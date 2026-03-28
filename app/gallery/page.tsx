@@ -1,78 +1,54 @@
+const pieces: {
+  gradient: string;
+  title: string;
+  area: string;
+}[] = [
+  { gradient: "from-amber-200 via-orange-100 to-yellow-50", title: "Morning warmth", area: "1 / 1 / 4 / 5" },
+  { gradient: "from-slate-800 via-zinc-700 to-neutral-900", title: "Deep structure", area: "1 / 5 / 5 / 7" },
+  { gradient: "from-sky-200 via-blue-100 to-indigo-50", title: "Open field", area: "4 / 1 / 7 / 3" },
+  { gradient: "from-emerald-200 via-teal-100 to-cyan-50", title: "Soft focus", area: "4 / 3 / 7 / 5" },
+  { gradient: "from-rose-300 via-pink-200 to-fuchsia-100", title: "Quiet bloom", area: "5 / 5 / 7 / 7" },
+  { gradient: "from-zinc-300 via-stone-200 to-zinc-100", title: "Neutral ground", area: "7 / 1 / 10 / 4" },
+  { gradient: "from-violet-300 via-purple-200 to-indigo-100", title: "Evening haze", area: "7 / 4 / 9 / 7" },
+  { gradient: "from-stone-800 via-neutral-700 to-stone-600", title: "Raw material", area: "9 / 4 / 12 / 7" },
+  { gradient: "from-orange-200 via-amber-100 to-yellow-100", title: "Worn paper", area: "10 / 1 / 12 / 4" },
+  { gradient: "from-cyan-200 via-sky-100 to-blue-50", title: "Cold glass", area: "12 / 1 / 14 / 3" },
+  { gradient: "from-zinc-900 via-zinc-800 to-zinc-700", title: "Dark room", area: "12 / 3 / 14 / 5" },
+  { gradient: "from-lime-200 via-green-100 to-emerald-50", title: "New leaf", area: "12 / 5 / 14 / 7" },
+];
+
 export default function GalleryPage() {
   return (
-    <div className="space-y-10 pb-12">
-      <section className="space-y-4">
-        <p className="text-sm md:text-base leading-relaxed text-zinc-500">
-          A small, rotating gallery of visual references—moments, colors, and
-          compositions that feel aligned with the kind of work I want to make.
-        </p>
-      </section>
+    <div className="space-y-8 pb-12">
+      <p className="text-sm md:text-base leading-relaxed text-zinc-500">
+        Visual fragments — colors, textures, and compositions I keep coming
+        back to.
+      </p>
 
-      <section className="space-y-4">
-        <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-zinc-500">
-          Imagined tiles
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4">
-            <div className="h-24 rounded bg-gradient-to-br from-zinc-200 to-zinc-300 mb-3" />
-            <p className="text-xs md:text-sm leading-relaxed text-zinc-500">
-              A soft gradient tile—muted, low contrast, designed to sit quietly
-              in the background of a dense interface.
-            </p>
+      <div
+        className="grid gap-3"
+        style={{
+          gridTemplateColumns: "repeat(6, 1fr)",
+          gridTemplateRows: "repeat(13, 55px)",
+        }}
+      >
+        {pieces.map((piece) => (
+          <div
+            key={piece.title}
+            className="group relative overflow-hidden rounded-sm"
+            style={{ gridArea: piece.area }}
+          >
+            <div
+              className={`bg-gradient-to-br ${piece.gradient} absolute inset-0 transition-transform duration-500 group-hover:scale-[1.03]`}
+            />
+            <div className="absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="text-[10px] uppercase tracking-widest px-3 py-2 text-white/80 bg-black/30 backdrop-blur-sm w-full">
+                {piece.title}
+              </span>
+            </div>
           </div>
-          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4">
-            <div className="h-24 rounded bg-gradient-to-br from-slate-200 to-slate-300 mb-3" />
-            <p className="text-xs md:text-sm leading-relaxed text-zinc-500">
-              A darker block, almost black, for when you want to foreground
-              text and let everything else recede.
-            </p>
-          </div>
-          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4">
-            <div className="h-24 rounded bg-gradient-to-br from-zinc-200 to-slate-200 mb-3" />
-            <p className="text-xs md:text-sm leading-relaxed text-zinc-500">
-              A subtle band of light—more suggestion than shape—hinting at
-              structure without forcing strict boundaries.
-            </p>
-          </div>
-          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4">
-            <div className="h-24 rounded bg-gradient-to-br from-neutral-200 to-neutral-300 mb-3" />
-            <p className="text-xs md:text-sm leading-relaxed text-zinc-500">
-              A neutral canvas tile, the kind you might use for a dashboard
-              card, note, or quick sketch of an idea.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-zinc-500">
-          Why visuals matter
-        </h3>
-        <p className="text-sm md:text-base leading-relaxed text-zinc-500">
-          Even in text-heavy interfaces, a few careful visual decisions can
-          change how the whole page feels. The right margins, the right
-          contrast, and the right amount of quiet space can make information
-          feel less demanding and more approachable.
-        </p>
-      </section>
-
-      {Array.from({ length: 6 }, (_, i) => (
-        <section key={i} className="space-y-4">
-          <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-zinc-500">
-            Filler section {i + 1}
-          </h3>
-          <p className="text-sm md:text-base leading-relaxed text-zinc-500">
-            This is placeholder content to test scrolling behavior. The sidebar
-            on the left should remain fixed in place while this content area
-            scrolls freely using the browser&apos;s native scrollbar.
-          </p>
-          <p className="text-sm md:text-base leading-relaxed text-zinc-500">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris.
-          </p>
-        </section>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
