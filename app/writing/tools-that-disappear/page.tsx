@@ -2,7 +2,7 @@ export default function ToolsThatDisappear() {
   return (
     <div className="space-y-8 pb-12">
       <header className="space-y-3">
-        <h1 className="text-xl md:text-2xl font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">
+        <h1 className="text-xl md:text-2xl font-semibold text-zinc-900 tracking-tight">
           Tools that disappear
         </h1>
         <p className="text-xs uppercase tracking-widest text-zinc-400">
@@ -10,7 +10,7 @@ export default function ToolsThatDisappear() {
         </p>
       </header>
 
-      <div className="space-y-5 text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+      <div className="space-y-5 text-sm md:text-base leading-relaxed text-zinc-600">
         <p>
           The best software I&apos;ve ever used is software I barely remember
           using. Not because it was forgettable, but because it never asked me

@@ -30,9 +30,9 @@ const entries: Entry[] = [
 ];
 
 const tagStyles: Record<Entry["tag"], string> = {
-  essay: "text-zinc-500 dark:text-zinc-400 border-zinc-300 dark:border-zinc-600",
-  note: "text-zinc-500 dark:text-zinc-400 border-zinc-300 dark:border-zinc-600",
-  external: "text-zinc-500 dark:text-zinc-400 border-zinc-300 dark:border-zinc-600",
+  essay: "text-zinc-500 border-zinc-300",
+  note: "text-zinc-500 border-zinc-300",
+  external: "text-zinc-500 border-zinc-300",
 };
 
 function formatDate(iso: string) {
@@ -51,12 +51,12 @@ export default function WritingPage() {
       <div className="space-y-0">
         {entries.map((entry) => {
           const isExternal = entry.tag === "external";
-          const className = "group block py-5 border-b border-zinc-100 dark:border-zinc-800 first:border-t";
+          const className = "group block py-5 border-b border-zinc-100 first:border-t";
 
           const inner = (
             <>
               <div className="flex items-baseline justify-between gap-4 mb-1.5">
-                <h3 className="text-sm md:text-base font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors">
+                <h3 className="text-sm md:text-base font-medium text-zinc-800 group-hover:text-zinc-950 transition-colors">
                   {entry.title}
                   {isExternal && (
                     <span className="ml-1.5 text-zinc-400 text-xs">↗</span>
@@ -73,7 +73,7 @@ export default function WritingPage() {
                   </span>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+              <p className="text-sm leading-relaxed text-zinc-500">
                 {entry.description}
               </p>
             </>
