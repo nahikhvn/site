@@ -23,15 +23,15 @@ export function SideRail() {
             href={href}
             className={`group flex items-center transition-colors ${
               isActive
-                ? "text-zinc-900 dark:text-zinc-100"
-                : "text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+                ? "text-zinc-900"
+                : "text-zinc-400 hover:text-zinc-900"
             }`}
           >
             <span
               className={`block h-px transition-all duration-300 ${
                 isActive
-                  ? "w-8 bg-zinc-900 dark:bg-zinc-100"
-                  : "w-5 bg-zinc-300 dark:bg-zinc-600 group-hover:w-8 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100"
+                  ? "w-8 bg-zinc-900"
+                  : "w-5 bg-zinc-300 group-hover:w-8 group-hover:bg-zinc-900"
               }`}
             />
             <span

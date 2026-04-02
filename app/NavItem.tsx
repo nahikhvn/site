@@ -12,7 +12,7 @@ export function NavItem({ href, label }: { href: string; label: string }) {
       <Link
         href={href}
         className={`text-sm transition-colors tracking-wide ${
-          isActive ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+          isActive ? "text-zinc-900" : "text-zinc-400 hover:text-zinc-900"
         }`}
       >
         {label}
