@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { MobileNav } from "./MobileNav";
 import { GlyphBackground } from "./GlyphBackground";
 import { SideRail } from "./SideRail";
-import { ThemeToggle } from "./ThemeToggle";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,7 +35,7 @@ export default function RootLayout({
         <main className="relative z-10 min-h-screen px-5 sm:px-10 lg:px-24 pt-16 sm:pt-24 pb-10">
           <div className="relative mx-auto w-full max-w-2xl">
             <div className="relative mb-10 sm:mb-16 flex items-center justify-between">
-              <a href="/" className="relative inline-block group text-zinc-900 dark:text-zinc-100 tracking-wide font-semibold py-1 rounded-sm">
+              <a href="/" className="relative inline-block group text-zinc-900 tracking-wide font-semibold py-1 rounded-sm">
                 <span className="transition-opacity duration-300 group-hover:opacity-0">
                   nahi khan
                 </span>
@@ -44,7 +43,6 @@ export default function RootLayout({
                   নাহি খান
                 </span>
               </a>
-              <div className="hidden sm:flex items-center"><ThemeToggle /></div>
             </div>
 
             <section className="relative space-y-12 content-shield">
@@ -53,13 +51,13 @@ export default function RootLayout({
               </div>
               {children}
 
-              <footer className="mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-6 text-sm text-zinc-500">
+              <footer className="mt-12 border-t border-zinc-200 pt-6 text-sm text-zinc-500">
                 <div className="flex justify-center sm:justify-start gap-5 py-1">
                   <a
                     href="https://x.com/nahikhvn"
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+                    className="hover:text-zinc-700 transition-colors"
                     aria-label="X (Twitter)"
                   >
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -68,7 +66,7 @@ export default function RootLayout({
                   </a>
                   <a
                     href="#"
-                    className="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+                    className="hover:text-zinc-700 transition-colors"
                     aria-label="Codeforces"
                   >
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -79,7 +77,7 @@ export default function RootLayout({
                     href="https://github.com/nahikhvn"
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+                    className="hover:text-zinc-700 transition-colors"
                     aria-label="GitHub"
                   >
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
