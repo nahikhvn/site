@@ -54,7 +54,7 @@ export default function RootLayout({
               <footer className="mt-12 border-t border-zinc-200 pt-6 text-sm text-zinc-500">
                 <div className="flex justify-center sm:justify-start gap-5 py-1">
                   <a
-                    href="https://x.com/nahikhvn"
+                    href="https://x.com/nahikhan"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-zinc-700 transition-colors"

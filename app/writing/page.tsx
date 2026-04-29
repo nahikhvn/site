@@ -24,7 +24,7 @@ const entries: Entry[] = [
     description:
       "A thread on why notification counts, red badges, and urgency cues are design failures — and what the alternative looks like.",
     tag: "external",
-    href: "https://x.com/nahikhvn",
+    href: "https://x.com/nahikhan",
     source: "x.com",
   },
 ];
